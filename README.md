@@ -6,4 +6,4 @@ Maybe a runner game or something of a survival game
 
 Probably a survival game for sure
 
-> a game where you have to survive for nights !!!
+> a game where you have to survive for nights !!
