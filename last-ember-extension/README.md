@@ -1,6 +1,6 @@
 # Last Ember — browser extension
 
-This unpacked Manifest V3 extension adds a Last Ember button to the browser toolbar. Clicking it opens the game in a tab; your normal New Tab page stays unchanged. The game files and icons are bundled locally and the manifest requests no browser permissions, so gameplay does not need a network connection.
+This folder contains the shared Last Ember game plus two ways to launch it: a desktop browser extension and a mobile-installable PWA. The extension adds a Last Ember button to the browser toolbar. Clicking it opens the game in a tab; your normal New Tab page stays unchanged. The game files and icons are bundled locally and the extension manifest requests no browser permissions.
 
 ## Try it in Chrome or Brave
 
@@ -12,6 +12,17 @@ This unpacked Manifest V3 extension adds a Last Ember button to the browser tool
 
 The toolbar button opens the bundled game locally, so it remains available offline. It does not replace the browser's built-in network-error page or Dino game.
 
-The source remains self-contained: `index.html`, `style.css`, `game.js`, `service-worker.js`, and `manifest.json` are all local. There are no remote libraries, images, fonts, or audio files. Game scores and the sound level are saved in the extension's own local storage.
+## Install on a phone
+
+The PWA files are in this same folder. Publish the folder as a static site over HTTPS. Each phone must visit the site once while online so its service worker can cache the game files.
+
+- Android: open the site in Chrome and choose **Install app** from the browser menu.
+- iPhone: open the site in Safari, tap **Share**, then **Add to Home Screen**.
+
+After the first successful cache, the home-screen app can launch offline. When we publish a character, environment, or gameplay update, the phone downloads it the next time it opens while online; if it is offline, it keeps using its cached build until it reconnects.
+
+The extension and PWA use the same `index.html`, `style.css`, and `game.js`. For a desktop unpacked extension, reload it from the extensions page after changing those files. A published extension would need a new version release. Scores and sound levels are stored separately on each device; cross-device save syncing would require an online account or sync service.
+
+The source remains self-contained: the HTML, CSS, JavaScript, icons, PWA service worker, and extension service worker are all local. There are no remote libraries, images, fonts, or audio files.
 
 The sound button cycles through Off, Low, Medium, and High; each click plays a short preview. Browsers require a user gesture before Web Audio can start, so sound begins after the first click or key press.

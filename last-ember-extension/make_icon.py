@@ -27,5 +27,5 @@ d.rounded_rectangle((35*S, 91*S, 91*S, 102*S), radius=5*S, fill="#533b2c", outli
 d.polygon([(63*S, 20*S), (76*S, 43*S), (88*S, 57*S), (86*S, 74*S), (76*S, 84*S), (50*S, 84*S), (39*S, 71*S), (43*S, 56*S), (55*S, 43*S)], fill="#ff873c")
 d.polygon([(65*S, 48*S), (75*S, 63*S), (72*S, 76*S), (62*S, 81*S), (52*S, 74*S), (55*S, 64*S)], fill="#ffd17b")
 
-for size, name in ((16, "icon16.png"), (48, "icon48.png"), (128, "icon128.png")):
+for size, name in ((16, "icon16.png"), (48, "icon48.png"), (128, "icon128.png"), (192, "icon192.png"), (512, "icon512.png")):
     im.resize((size, size), Image.Resampling.LANCZOS).save(OUT / name, optimize=True)
