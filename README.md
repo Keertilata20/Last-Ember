@@ -3,71 +3,70 @@
 </p>
 
 <p align="center">
-  <strong>A quiet world. A hungry fire. Something moving beyond the light.</strong><br>
-  <sub>A bite-sized winter survival game about making it through one more night.</sub>
+  <strong>A quiet world. A hungry fire. A small group trying to see another morning.</strong><br>
+  <sub>A turn-based winter survival game about keeping people alive through the long cold.</sub>
 </p>
 
 <p align="center">
   <a href="#play"><strong>▶ &nbsp; PLAY</strong></a> &nbsp;　·　&nbsp;
-  <a href="#the-night"><strong>THE NIGHT</strong></a> &nbsp;　·　&nbsp;
-  <a href="#controls"><strong>CONTROLS</strong></a> &nbsp;　·　&nbsp;
-  <a href="#browser-extension"><strong>BROWSER EXTENSION</strong></a>
+  <a href="#the-settlement"><strong>THE SETTLEMENT</strong></a> &nbsp;　·　&nbsp;
+  <a href="#daily-actions"><strong>DAILY ACTIONS</strong></a> &nbsp;　·　&nbsp;
+  <a href="#other-builds"><strong>OTHER BUILDS</strong></a>
 </p>
 
 <br>
 
-## One more night
+## One more morning
 
 The world has gone quiet. Snow swallows the trail, the dark presses close, and the fire is all that keeps the wolves back.
 
-In **Last Ember**, each night is a fight to see the dawn. Leave the warmth to gather scattered logs, then carry them back before the flames die. The light is safety, but only while you can keep it alive. Survive the night and choose an upgrade. Stay out there long enough, and the cold will have to wait one more night.
+In **Last Ember**, you lead two survivors through a winter with no end in sight. Every day, decide how to spend your people’s time: chop wood, forage for food, stoke the fire, or build what the camp needs. At night, the weather takes its share. The fire sinks, hunger thins the group, and wolves test the light. Sometimes a stranger arrives at the edge of camp—with one more pair of hands, and one more mouth to feed.
 
-<p align="center"><em>Just you, the snow, and one more night.</em></p>
+Keep the fire alive. Keep enough food for everyone. Make it to another morning.
 
 <table>
   <tr>
-    <td align="center" width="25%"><strong>01 &nbsp; TEND</strong><br><sub>The fire is fading.</sub></td>
-    <td align="center" width="25%"><strong>02 &nbsp; VENTURE</strong><br><sub>Find wood in the dark.</sub></td>
-    <td align="center" width="25%"><strong>03 &nbsp; RETURN</strong><br><sub>Bring it back alive.</sub></td>
-    <td align="center" width="25%"><strong>04 &nbsp; ENDURE</strong><br><sub>Reach dawn. Grow stronger.</sub></td>
+    <td align="center" width="25%"><strong>01 &nbsp; GATHER</strong><br><sub>Chop wood. Forage for food.</sub></td>
+    <td align="center" width="25%"><strong>02 &nbsp; PREPARE</strong><br><sub>Stoke the fire. Build defenses.</sub></td>
+    <td align="center" width="25%"><strong>03 &nbsp; END THE DAY</strong><br><sub>Face the weather and the wolves.</sub></td>
+    <td align="center" width="25%"><strong>04 &nbsp; SURVIVE</strong><br><sub>Feed the camp. Begin again.</sub></td>
   </tr>
 </table>
 
-<p align="center"><code>🌙 &nbsp; KEEP THE FIRE ALIVE &nbsp; → &nbsp; 🪵 GATHER WOOD &nbsp; → &nbsp; 🐺 OUTLAST THE NIGHT &nbsp; → &nbsp; 🌅 CHOOSE AN UPGRADE</code></p>
+<p align="center"><code>🪵 WOOD &nbsp; + &nbsp; 🥕 FOOD &nbsp; + &nbsp; 🔥 FIRELIGHT &nbsp; → &nbsp; 🌅 ONE MORE MORNING</code></p>
 
-## <a id="the-night"></a>The night
+## <a id="the-settlement"></a>Keep the camp alive
 
-Keep the fire burning until dawn. Its fuel drains as the night wears on, so venture out for logs and bring them back. The fire’s ring of light is your shelter: wolves prowl beyond it, and the nights grow longer and more dangerous as you survive.
+Your group starts with **two people**, **six wood**, **four food**, and a fire at **60 / 100**. Each person gives you one action per day. Everyone eats one food each night. If food runs out, people starve; if the fire dies, people freeze. When the fire falls below 30, wolves may attack.
 
-Make it to dawn and choose one of two upgrades. Then the light begins to fade again.
+Weather shifts between clear skies, cold snaps, and storms. A **Windbreak** slows the fire’s burn, a **Palisade** makes wolf attacks less likely, and a **Drying rack** improves each forage. After the second day, a stranger may appear. Taking them in adds an action—and another person to feed.
 
-## <a id="controls"></a>Find your way
+The run ends when the last person is lost. Your best number of nights survived is saved locally in the browser.
 
-| What you need | How |
+## <a id="daily-actions"></a>Spend the day
+
+| Action | Cost / result |
 |:--|:--|
-| Walk | **WASD**, **arrow keys**, or tap and drag |
-| Pause / resume | **P** or **Esc** |
-| Change sound | **M** or the speaker button |
-| Choose an upgrade at dawn | **1** or **2**, or tap a card |
-| Open the help | **?** button |
+| Chop wood | One action; gain **2–4 wood** |
+| Forage | One action; gain **1–3 food** (**+1** with a Drying rack) |
+| Stoke the fire | One action and **2 wood**; restore **30 fire** |
+| Build a Windbreak | One action and **6 wood**; fire burns **4 less** each night |
+| Build a Palisade | One action and **8 wood**; wolves are **70% less likely** to get in |
+| Build a Drying rack | One action and **5 wood**; forage finds **1 extra food** |
+| End day | Resolve the night; start the next day with one action per person |
 
-The game pauses when its tab loses focus. Your best run and sound setting are saved locally in the browser. Sound starts after your first input, as browsers require a user gesture before audio can play.
+Choose actions by clicking or tapping the buttons. The game runs as a single local HTML file; no keyboard controls, account, or network connection are required.
 
 ## <a id="play"></a>Play
 
-### Open the standalone game
+Open [`last-ember.html`](last-ember.html) in a modern browser. It is self-contained and needs no install, server, or internet connection. Your best run is stored in that browser on that device.
 
-Open [`last-ember.html`](last-ember.html) in a modern browser. The game is self-contained and needs no server, installation, account, or internet connection.
+## <a id="other-builds"></a>Other builds in this repository
 
-### <a id="browser-extension"></a>Install the browser button
+The `last-ember-extension/` and `last-ember-pwa/` folders contain a **separate earlier version** of Last Ember: a real-time game where you directly move a survivor, gather logs, and evade wolves. The desktop extension launches that version from the browser toolbar; the PWA build can be hosted over HTTPS and installed on a phone. Their gameplay is not yet the same as the settlement game in `last-ember.html`.
 
-The [`last-ember-extension`](last-ember-extension/) folder contains an unpacked extension for Chrome and Brave. Install it once, then launch the locally bundled game from your toolbar—even offline.
-
-1. Open `chrome://extensions` in Chrome or `brave://extensions` in Brave.
-2. Turn on **Developer mode**.
-3. Choose **Load unpacked** and select the `last-ember-extension` folder.
-4. Pin **Last Ember** in the Extensions menu for quick access.
-
-See the [extension setup guide](last-ember-extension/README.md) for more details.
+- [Extension setup and phone installation notes](last-ember-extension/README.md)
+- [PWA deployment guide](PWA-DEPLOY.md)
+- Rebuild the PWA folder from the extension source with `node build-pwa.js`.
 
 <p align="center"><sub><strong>LAST EMBER</strong> &nbsp;·&nbsp; MIDNIGHT <code>#182838</code> &nbsp; FROST <code>#D5E0E4</code> &nbsp; EMBER <code>#ED633B</code> &nbsp; FIRELIGHT <code>#FFBF69</code></sub></p>
