@@ -3,70 +3,51 @@
 </p>
 
 <p align="center">
-  <strong>A quiet world. A hungry fire. A small group trying to see another morning.</strong><br>
-  <sub>A turn-based winter survival game about keeping people alive through the long cold.</sub>
+  <strong>One survivor. One fire. Make it to dawn.</strong><br>
+  <sub>A single-player winter survival game for desktop and phone browsers.</sub>
 </p>
 
 <p align="center">
-  <a href="#play"><strong>▶ &nbsp; PLAY</strong></a> &nbsp;　·　&nbsp;
-  <a href="#the-settlement"><strong>THE SETTLEMENT</strong></a> &nbsp;　·　&nbsp;
-  <a href="#daily-actions"><strong>DAILY ACTIONS</strong></a> &nbsp;　·　&nbsp;
-  <a href="#other-builds"><strong>OTHER BUILDS</strong></a>
+  <a href="#the-game"><strong>THE GAME</strong></a> &nbsp; · &nbsp;
+  <a href="#controls"><strong>CONTROLS</strong></a> &nbsp; · &nbsp;
+  <a href="#play"><strong>PLAY</strong></a> &nbsp; · &nbsp;
+  <a href="#offline-play"><strong>OFFLINE PLAY</strong></a>
 </p>
 
-<br>
+## <a id="the-game"></a>What Last Ember is
 
-## One more morning
+Last Ember is a **single-player, real-time survival game**. You control one lone survivor in a snowy forest. Gather logs, carry them back to the campfire, and keep its light alive through the night. Wolves roam outside the firelight and can attack you when you leave its safety. Survive until dawn, choose an upgrade, and face a harder night.
 
-The world has gone quiet. Snow swallows the trail, the dark presses close, and the fire is all that keeps the wolves back.
+There is **one playable character**. Wolves are enemies, not a second character or another player. There is no co-op or multiplayer, and progress is saved separately on each device.
 
-In **Last Ember**, you lead two survivors through a winter with no end in sight. Every day, decide how to spend your people’s time: chop wood, forage for food, stoke the fire, or build what the camp needs. At night, the weather takes its share. The fire sinks, hunger thins the group, and wolves test the light. Sometimes a stranger arrives at the edge of camp—with one more pair of hands, and one more mouth to feed.
+The game includes touch controls for phones, keyboard controls for desktop, pause and restart controls, health and fire indicators, upgrades between nights, synthesized sound effects, and a locally saved best survival record.
 
-Keep the fire alive. Keep enough food for everyone. Make it to another morning.
+## <a id="controls"></a>Controls
 
-<table>
-  <tr>
-    <td align="center" width="25%"><strong>01 &nbsp; GATHER</strong><br><sub>Chop wood. Forage for food.</sub></td>
-    <td align="center" width="25%"><strong>02 &nbsp; PREPARE</strong><br><sub>Stoke the fire. Build defenses.</sub></td>
-    <td align="center" width="25%"><strong>03 &nbsp; END THE DAY</strong><br><sub>Face the weather and the wolves.</sub></td>
-    <td align="center" width="25%"><strong>04 &nbsp; SURVIVE</strong><br><sub>Feed the camp. Begin again.</sub></td>
-  </tr>
-</table>
+- **Phone/tablet:** tap or drag to move.
+- **Desktop:** move with the arrow keys or WASD; use the mouse to interact with menus.
+- **Pause:** P or Esc, or the pause button. The game also pauses when its tab is hidden.
+- **Sound:** M or the speaker button cycles the volume.
+- **Upgrades:** tap a card or press 1 or 2.
 
-<p align="center"><code>🪵 WOOD &nbsp; + &nbsp; 🥕 FOOD &nbsp; + &nbsp; 🔥 FIRELIGHT &nbsp; → &nbsp; 🌅 ONE MORE MORNING</code></p>
-
-## <a id="the-settlement"></a>Keep the camp alive
-
-Your group starts with **two people**, **six wood**, **four food**, and a fire at **60 / 100**. Each person gives you one action per day. Everyone eats one food each night. If food runs out, people starve; if the fire dies, people freeze. When the fire falls below 30, wolves may attack.
-
-Weather shifts between clear skies, cold snaps, and storms. A **Windbreak** slows the fire’s burn, a **Palisade** makes wolf attacks less likely, and a **Drying rack** improves each forage. After the second day, a stranger may appear. Taking them in adds an action—and another person to feed.
-
-The run ends when the last person is lost. Your best number of nights survived is saved locally in the browser.
-
-## <a id="daily-actions"></a>Spend the day
-
-| Action | Cost / result |
-|:--|:--|
-| Chop wood | One action; gain **2–4 wood** |
-| Forage | One action; gain **1–3 food** (**+1** with a Drying rack) |
-| Stoke the fire | One action and **2 wood**; restore **30 fire** |
-| Build a Windbreak | One action and **6 wood**; fire burns **4 less** each night |
-| Build a Palisade | One action and **8 wood**; wolves are **70% less likely** to get in |
-| Build a Drying rack | One action and **5 wood**; forage finds **1 extra food** |
-| End day | Resolve the night; start the next day with one action per person |
-
-Choose actions by clicking or tapping the buttons. The game runs as a single local HTML file; no keyboard controls, account, or network connection are required.
+The in-game **?** button explains the HUD and how to play.
 
 ## <a id="play"></a>Play
 
-Open [`last-ember.html`](last-ember.html) in a modern browser. It is self-contained and needs no install, server, or internet connection. Your best run is stored in that browser on that device.
+- **Phone:** [Play Last Ember](https://last-ember-game.netlify.app/). On Android, install it from Chrome's menu. On iPhone, use Safari's **Share → Add to Home Screen**.
+- **Desktop:** install the unpacked extension from [`last-ember-extension/`](last-ember-extension/README.md). Its toolbar button opens the game in a tab and leaves your New Tab page alone.
+- **Local preview:** open [`last-ember-extension/index.html`](last-ember-extension/index.html) in a modern browser. Some PWA install and offline features require HTTPS or a local web server.
 
-## <a id="other-builds"></a>Other builds in this repository
+## <a id="offline-play"></a>Offline play and updates
 
-The `last-ember-extension/` and `last-ember-pwa/` folders contain a **separate earlier version** of Last Ember: a real-time game where you directly move a survivor, gather logs, and evade wolves. The desktop extension launches that version from the browser toolbar; the PWA build can be hosted over HTTPS and installed on a phone. Their gameplay is not yet the same as the settlement game in `last-ember.html`.
+The desktop extension bundles the game files and can launch them offline after installation. The phone PWA must first be opened successfully while online so its service worker can cache the game. After that, it can launch from the home screen without a connection. A newly published build downloads when the phone next opens the site online; offline devices keep their cached build until they reconnect.
 
-- [Extension setup and phone installation notes](last-ember-extension/README.md)
-- [PWA deployment guide](PWA-DEPLOY.md)
-- Rebuild the PWA folder from the extension source with `node build-pwa.js`.
+The desktop extension and phone PWA are built from the same `index.html`, `style.css`, and `game.js` source. In this repository, the extension and PWA game files currently match. They do not share saved scores or sound settings across devices. The public phone site is hosted at Netlify; the extension runs locally from the browser.
+
+To rebuild the phone upload folder after changing the extension source, run `node build-pwa.js` from this folder and deploy the contents of `last-ember-pwa/` to the HTTPS site.
+
+## Other prototype
+
+[`last-ember.html`](last-ember.html) is a **separate, turn-based camp-management prototype**. It starts with two survivors and asks you to manage food, wood, and the fire using daily actions. Those two survivors belong only to that prototype; they are not in the real-time game described above. It is not the game currently served at the phone link.
 
 <p align="center"><sub><strong>LAST EMBER</strong> &nbsp;·&nbsp; MIDNIGHT <code>#182838</code> &nbsp; FROST <code>#D5E0E4</code> &nbsp; EMBER <code>#ED633B</code> &nbsp; FIRELIGHT <code>#FFBF69</code></sub></p>
