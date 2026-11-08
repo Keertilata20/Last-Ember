@@ -1,6 +1,10 @@
 # Last Ember
 
-**Last Ember** is a small, self-contained winter survival game that runs in your browser, including when you are offline. Keep the fire burning until dawn, gather wood, and survive as many nights as you can while wolves circle the light.
+The world has gone quiet. Snow swallows the trail, the dark presses close, and the fire is all that keeps the wolves back.
+
+In **Last Ember**, each night is a fight to see the dawn. Leave the warmth to gather scattered logs, then carry them back before the flames die. The light is safety, but only while you can keep it alive. Survive the night and choose an upgrade. Stay out there long enough, and the cold will have to wait one more night.
+
+Last Ember is a small, self-contained survival game that runs in your browser, even when you are offline. No account or connection needed. Just you, the snow, and one more night.
 
 ## Play the game
 
@@ -19,16 +23,16 @@ The [`last-ember-extension`](last-ember-extension/) folder contains an unpacked 
 
 See the [extension README](last-ember-extension/README.md) for more details.
 
-## How to play
+## When night falls
 
-- Keep the fire alive until dawn. Its fuel drains over time, so collect logs and return to the fire to add fuel.
+- Keep the fire alive until dawn. Fuel drains as the night wears on, so venture out for logs and bring them back to the fire.
 - Move with **WASD** or the **arrow keys**, or tap and drag on the play area.
-- Stay within the dashed ring of light. Wolves attack outside it and avoid the fire.
-- Survive each night to choose one of two upgrades. Nights get longer and more dangerous as you progress.
+- Stay within the dashed ring of light when you can. Wolves prowl beyond it and keep their distance from the fire.
+- Make it to dawn to choose one of two upgrades. Each night brings a longer wait and more danger.
 - Press **P** or **Esc** to pause, and **M** to cycle sound volume. Use **1** or **2** to choose an upgrade at dawn.
 - Select **?** in game for the control guide. The game pauses when the tab loses focus.
 
-Your best number of nights survived and sound level are saved locally in the browser. Sound starts after your first input because browsers require a user gesture before audio can play.
+Your best run and sound level are saved locally in the browser. Sound begins after your first input, as browsers require a user gesture before audio can play.
 
 ## Project files
 
