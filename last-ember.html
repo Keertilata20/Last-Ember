@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Last Ember</title>
+<style>
+:root{--ink:#e9dcc3;--dim:#9a917c;--bg:#14161c;--card:#1d2029;--ember:#ff8a3d}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 115%,#3d2414 0,var(--bg) 62%) fixed;color:var(--ink);font:16px/1.4 Georgia,serif;display:flex;justify-content:center}
+main{width:min(560px,100%);padding:22px 16px 40px}
+h1{margin:0;font-size:30px}
+.sub{color:var(--dim);margin:2px 0 14px;font-size:14px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
+.stat{background:var(--card);border-radius:8px;padding:8px;text-align:center}
+.stat b{display:block;font-size:22px}
+.stat span{font-size:12px;color:var(--dim)}
+.fire{background:var(--card);padding:12px;border-radius:8px}
+.bar{height:12px;background:#0d0f13;border-radius:6px;overflow:hidden;position:relative;margin:8px 0}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,#b8321a,var(--ember));transition:width .4s}
+.bar u{position:absolute;top:0;height:100%;width:2px;background:var(--ink);opacity:.8}
+.note{font-size:14px;color:var(--dim);margin:0}
+.warn{color:#ff6b57}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+button{font:inherit;color:var(--ink);background:#2a2e3a;border:1px solid #3a3f4e;border-radius:8px;padding:10px 12px;cursor:pointer;text-align:left}
+button:hover:not(:disabled){border-color:var(--ember)}
+button:focus-visible{outline:2px solid var(--ember)}
+button:disabled{opacity:.4;cursor:not-allowed}
+button small{display:block;color:var(--dim);font-size:12px}
+.end{width:100%;background:#4a2a14;border-color:var(--ember);text-align:center;font-weight:bold}
+h2{font-size:15px;margin:16px 0 0;color:var(--dim);font-weight:normal}
+#log{background:var(--card);border-radius:8px;padding:8px 14px;min-height:80px;font-size:14px;margin-top:12px}
+#log p{margin:5px 0}
+</style>
+</head>
+<body>
+<main>
+<h1>Last Ember</h1>
+<div class="sub">Keep the fire alive. Every night it burns lower, and the nights get colder.</div>
+<div id="app"></div>
+</main>
+<script>
+const BUILDS = {
+  wind: { n: 'Windbreak', c: 6, d: 'Fire burns 4 slower each night' },
+  pal:  { n: 'Palisade',  c: 8, d: 'Wolves 70% less likely to get in' },
+  rack: { n: 'Drying rack', c: 5, d: 'Foraging finds 1 extra food' }
+};
+const WX = {
+  calm:  ['Clear sky', 0],
+  cold:  ['Cold snap', 8],
+  storm: ['Storm', 20]
+};
+let S, best = 0;
+try { best = +localStorage.getItem('lastEmberBest') || 0; } catch (e) {}
+const rnd = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
+
+function wx(d) {
+  if (!S.wx[d]) {
+    const r = Math.random(), k = Math.min(0.3, 0.08 + d * 0.01);
+    S.wx[d] = r < k ? 'storm' : r < k + 0.2 ? 'cold' : 'calm';
+  }
+  return S.wx[d];
+}
+function decay() {
+  return Math.max(4, 8 + S.day + WX[wx(S.day)][1] - (S.built.wind ? 4 : 0));
+}
+
+function newGame() {
+  S = { day: 1, pop: 2, ap: 2, wood: 6, food: 4, fire: 60, built: {}, stranger: false, over: false, wx: {},
+        log: ['Two of you, a small fire, and a long winter ahead.'] };
+  render();
+}
+
+function act(a) {
+  if (S.over || S.stranger || S.ap < 1) return;
+  const B = BUILDS[a];
+  let msg;
+  if (a === 'chop') { const n = rnd(2, 4); S.wood += n; msg = 'Chopped ' + n + ' wood.'; }
+  else if (a === 'forage') { const n = rnd(1, 3) + (S.built.rack ? 1 : 0); S.food += n; msg = 'Foraged ' + n + ' food.'; }
+  else if (a === 'stoke') {
+    if (S.wood < 2) return;
+    S.wood -= 2; S.fire = Math.min(100, S.fire + 30); msg = 'Stoked the fire (+30).';
+  } else if (B) {
+    if (S.built[a] || S.wood < B.c) return;
+    S.wood -= B.c; S.built[a] = 1; msg = 'Built: ' + B.n + '.';
+  } else return;
+  S.ap--; S.log = [msg]; render();
+}
+
+function endDay() {
+  if (S.over || S.stranger) return;
+  const m = [], d = decay();
+  S.fire = Math.max(0, S.fire - d);
+  m.push('Night (' + WX[wx(S.day)][0].toLowerCase() + '): the fire burned down by ' + d + '.');
+  if (S.food >= S.pop) S.food -= S.pop;
+  else { S.food = 0; S.pop--; m.push('Not enough food. Someone starved.'); }
+  if (S.pop > 0 && S.fire === 0) { S.pop--; m.push('The fire died. Someone froze in the dark.'); }
+  if (S.pop > 0 && S.fire < 30) {
+    let p = Math.min(0.8, 0.45 + S.day * 0.01);
+    if (S.built.pal) p *= 0.3;
+    if (Math.random() < p) { S.pop--; m.push('Wolves came for the weak fire. You lost someone.'); }
+    else m.push('Wolves circled the dim fire, then left.');
+  }
+  if (S.pop <= 0) {
+    S.over = true; S.score = S.day - 1;
+    if (S.score > best) { best = S.score; try { localStorage.setItem('lastEmberBest', best); } catch (e) {} }
+    m.push('The last ember went out.');
+  } else {
+    S.day++; S.ap = S.pop;
+    if (S.day > 2 && Math.random() < 0.2) { S.stranger = true; m.push('A stranger waits at the edge of the light.'); }
+  }
+  S.log = m; render();
+}
+
+function stranger(yes) {
+  if (yes) { S.pop++; S.ap++; S.log = ['You took them in. One more pair of hands, and one more mouth.']; }
+  else S.log = ['You turned them away.'];
+  S.stranger = false; render();
+}
+
+function render() {
+  const d = decay(), proj = Math.max(0, S.fire - d), low = proj < 30, a = S.ap > 0 && !S.stranger;
+  const bd = Object.keys(BUILDS).filter(k => !S.built[k]).map(k => {
+    const B = BUILDS[k];
+    return '<button ' + (a && S.wood >= B.c ? '' : 'disabled ') + 'onclick="act(\'' + k + '\')">Build ' + B.n +
+      '<small>' + B.c + ' wood, 1 action. ' + B.d + '</small></button>';
+  }).join('');
+  let h = '';
+  if (S.over) {
+    h = '<div class="fire"><b>Nights survived: ' + S.score + '</b><p class="note">Best: ' + best + '</p></div>' +
+      '<div class="grid"><button class="end" style="grid-column:1/3" onclick="newGame()">Play again</button></div>';
+  } else {
+    h = '<div class="stats"><div class="stat"><b>' + S.day + '</b><span>Day</span></div>' +
+      '<div class="stat"><b>' + S.pop + '</b><span>People</span></div>' +
+      '<div class="stat"><b>' + S.wood + '</b><span>Wood</span></div>' +
+      '<div class="stat"><b>' + S.food + '</b><span>Food</span></div></div>' +
+      '<div class="fire"><div>Fire: ' + S.fire + ' / 100</div>' +
+      '<div class="bar"><i style="width:' + S.fire + '%"></i><u style="left:30%"></u></div>' +
+      '<p class="note">Tonight: ' + WX[wx(S.day)][0] + ', burns ' + d + '. Tomorrow: ' + WX[wx(S.day + 1)][0] + '.</p>' +
+      '<p class="note ' + (low ? 'warn' : '') + '">Fire ends the night near ' + proj + '. ' +
+      (low ? 'Below 30, wolves can come.' : 'Safe from wolves.') + ' Everyone eats ' + S.pop + ' food.</p></div>' +
+      (S.stranger
+        ? '<h2>Someone has arrived</h2><div class="grid"><button onclick="stranger(1)">Take them in<small>+1 person, eats 1 food per night</small></button>' +
+          '<button onclick="stranger(0)">Turn them away<small>Keep your supplies</small></button></div>'
+        : '<h2>Actions left today: ' + S.ap + '</h2><div class="grid">' +
+          '<button ' + (a ? '' : 'disabled ') + 'onclick="act(\'chop\')">Chop wood<small>+2 to 4 wood</small></button>' +
+          '<button ' + (a ? '' : 'disabled ') + 'onclick="act(\'forage\')">Forage<small>+1 to 3 food' + (S.built.rack ? ' (+1 rack)' : '') + '</small></button>' +
+          '<button ' + (a && S.wood >= 2 ? '' : 'disabled ') + 'onclick="act(\'stoke\')">Stoke fire<small>2 wood, +30 fire</small></button>' + bd + '</div>' +
+          '<button class="end" onclick="endDay()">End day</button>');
+  }
+  h += '<div id="log">' + S.log.map(t => '<p>' + t + '</p>').join('') + '</div>';
+  document.getElementById('app').innerHTML = h;
+}
+newGame();
+</script>
+</body>
+</html>

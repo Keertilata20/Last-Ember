@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Last Ember — Offline Survival",
+  "version": "0.1.0",
+  "description": "A tiny winter survival game you can launch from the browser toolbar, even offline.",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "action": {
+    "default_title": "Play Last Ember",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png"
+    }
+  },
+  "background": {
+    "service_worker": "service-worker.js"
+  }
+}

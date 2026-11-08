@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Last Ember</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="c" tabindex="0" aria-label="Last Ember game. Carry wood to the fire until dawn. Press the question mark button for how to play."></canvas>
+<button id="startbtn" type="button" hidden>Start Last Ember</button>
+<div id="live" class="sr" aria-live="polite"></div>
+<button id="mutebtn" type="button" aria-label="Sound volume">🔊</button>
+<button id="helpbtn" aria-label="How to play">?</button>
+<div id="how" role="dialog" aria-label="How to play" hidden>
+<p><b>How to play</b></p>
+<p>Keep the fire alive until dawn. Walk over logs to pick them up (you can carry a few), then walk to the fire to feed it.</p>
+<p>Move by tapping or dragging, or with the arrow keys or WASD. Stay inside the dashed ring of light: wolves attack you outside it and keep away from the fire.</p>
+<p>P or Esc pauses. M or the speaker button changes the volume. After each night, choose an upgrade by tapping a card or pressing 1 or 2.</p>
+<p>Top-left: the ring is the fire's fuel and the brown slots show the wood you carry. Top-right: the hearts are your health. The bar along the top fills as dawn gets closer.</p>
+<button id="howclose">Close</button>
+</div>
+<script src="game.js" defer></script>
+</body>
+</html>
