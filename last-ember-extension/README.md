@@ -14,14 +14,14 @@ The toolbar button opens the bundled game locally, so it remains available offli
 
 ## Install on a phone
 
-The PWA files are in this same folder. Publish the folder as a static site over HTTPS. Each phone must visit the site once while online so its service worker can cache the game files.
+The PWA files are in this same folder. To make a clean web upload, run `node build-pwa.js` from the parent `offline-game` folder; it creates `last-ember-pwa` from the shared source files. Publish that folder as a static site over HTTPS. Each phone must visit the site once while online so its service worker can cache the game files.
 
 - Android: open the site in Chrome and choose **Install app** from the browser menu.
 - iPhone: open the site in Safari, tap **Share**, then **Add to Home Screen**.
 
 After the first successful cache, the home-screen app can launch offline. When we publish a character, environment, or gameplay update, the phone downloads it the next time it opens while online; if it is offline, it keeps using its cached build until it reconnects.
 
-The extension and PWA use the same `index.html`, `style.css`, and `game.js`. For a desktop unpacked extension, reload it from the extensions page after changing those files. A published extension would need a new version release. Scores and sound levels are stored separately on each device; cross-device save syncing would require an online account or sync service.
+The extension and PWA use the same `index.html`, `style.css`, and `game.js`. For a desktop unpacked extension, reload it from the extensions page after changing those files. Rebuild and redeploy `last-ember-pwa` for phone users. A published extension would need a new version release. Scores and sound levels are stored separately on each device; cross-device save syncing would require an online account or sync service.
 
 The source remains self-contained: the HTML, CSS, JavaScript, icons, PWA service worker, and extension service worker are all local. There are no remote libraries, images, fonts, or audio files.
 
