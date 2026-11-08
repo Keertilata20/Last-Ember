@@ -14,40 +14,53 @@
   <a href="#offline-play"><strong>OFFLINE PLAY</strong></a>
 </p>
 
-## <a id="the-game"></a>What Last Ember is
+## <a id="the-game"></a>The night is yours to survive
 
-Last Ember is a **single-player, real-time survival game**. You control one lone survivor in a snowy forest. Gather logs, carry them back to the campfire, and keep its light alive through the night. Wolves roam outside the firelight and can attack you when you leave its safety. Survive until dawn, choose an upgrade, and face a harder night.
+The forest is dark, the cold is closing in, and the fire is your one safe place. **Last Ember** is a real-time, single-player survival game: guide one lone survivor through the snow, pick up logs, and bring them back to the campfire before its glow fades. Wolves prowl beyond the light. Stay close, keep moving, and hold on until dawn.
 
-There is **one playable character**. Wolves are enemies, not a second character or another player. There is no co-op or multiplayer, and progress is saved separately on each device.
+Make it through the night and you’ll earn an upgrade before the next one begins. The longer you survive, the harder the forest presses back.
 
-The game includes touch controls for phones, keyboard controls for desktop, pause and restart controls, health and fire indicators, upgrades between nights, synthesized sound effects, and a locally saved best survival record.
+> **One playable survivor. Wolves are enemies.** There is no second survivor, co-op, or multiplayer in this game. Your best score and sound setting are saved on each device separately.
 
-## <a id="controls"></a>Controls
+<table>
+  <tr>
+    <td align="center"><strong>🪵 FIND</strong><br><sub>Search the snowy dark for logs.</sub></td>
+    <td align="center"><strong>🔥 FEED</strong><br><sub>Bring wood back to the fire.</sub></td>
+    <td align="center"><strong>🐺 SURVIVE</strong><br><sub>Keep to the light and outlast the wolves.</sub></td>
+    <td align="center"><strong>🌅 RETURN</strong><br><sub>Reach dawn, choose an upgrade, begin again.</sub></td>
+  </tr>
+</table>
 
-- **Phone/tablet:** tap or drag to move.
-- **Desktop:** move with the arrow keys or WASD; use the mouse to interact with menus.
-- **Pause:** P or Esc, or the pause button. The game also pauses when its tab is hidden.
-- **Sound:** M or the speaker button cycles the volume.
-- **Upgrades:** tap a card or press 1 or 2.
+The game has touch controls for phones and keyboard controls for desktop, plus pause and restart, health and fire indicators, upgrades between nights, synthesized sound effects, and a locally saved best survival record.
 
-The in-game **?** button explains the HUD and how to play.
+## <a id="controls"></a>Find your way through the dark
 
-## <a id="play"></a>Play
+| Device / action | Controls |
+|:--|:--|
+| Phone or tablet | Tap or drag to move |
+| Desktop movement | Arrow keys or WASD |
+| Pause | P, Esc, or the pause button; the game also pauses when its tab is hidden |
+| Sound | M or the speaker button cycles the volume |
+| Upgrades | Tap a card or press 1 or 2 |
 
-- **Phone:** [Play Last Ember](https://last-ember-game.netlify.app/). On Android, install it from Chrome's menu. On iPhone, use Safari's **Share → Add to Home Screen**.
-- **Desktop:** install the unpacked extension from [`last-ember-extension/`](last-ember-extension/README.md). Its toolbar button opens the game in a tab and leaves your New Tab page alone.
-- **Local preview:** open [`last-ember-extension/index.html`](last-ember-extension/index.html) in a modern browser. Some PWA install and offline features require HTTPS or a local web server.
+Tap the in-game **?** for the full instructions and HUD guide.
 
-## <a id="offline-play"></a>Offline play and updates
+## <a id="play"></a>Choose your way in
 
-The desktop extension bundles the game files and can launch them offline after installation. The phone PWA must first be opened successfully while online so its service worker can cache the game. After that, it can launch from the home screen without a connection. A newly published build downloads when the phone next opens the site online; offline devices keep their cached build until they reconnect.
+- **Phone:** [Play Last Ember](https://last-ember-game.netlify.app/). On Android, choose **Install app** from Chrome’s menu. On iPhone, open it in Safari and choose **Share → Add to Home Screen**.
+- **Desktop:** install the unpacked extension using the [desktop setup guide](last-ember-extension/README.md). Its toolbar button opens the game in a tab and leaves your New Tab page alone.
+- **Local preview:** open [`last-ember-extension/index.html`](last-ember-extension/index.html) in a modern browser. PWA installation and offline caching need HTTPS or a local web server.
 
-The desktop extension and phone PWA are built from the same `index.html`, `style.css`, and `game.js` source. In this repository, the extension and PWA game files currently match. They do not share saved scores or sound settings across devices. The public phone site is hosted at Netlify; the extension runs locally from the browser.
+## <a id="offline-play"></a>Take the fire offline
 
-To rebuild the phone upload folder after changing the extension source, run `node build-pwa.js` from this folder and deploy the contents of `last-ember-pwa/` to the HTTPS site.
+The desktop extension bundles the game, so it can launch without internet after installation. The phone version is a PWA: open the site successfully while online once, and its service worker caches the game for offline launch from your home screen. When a new version is published, your phone downloads it the next time you open the site online; while offline, it keeps using its cached version.
 
-## Other prototype
+Both builds use the same `index.html`, `style.css`, and `game.js` source. The desktop and phone game files in this repository currently match. They play the same game, but saved scores and sound settings stay on their own devices; there is no cross-device sync. The phone site is hosted on Netlify, while the extension runs locally in your browser.
 
-[`last-ember.html`](last-ember.html) is a **separate, turn-based camp-management prototype**. It starts with two survivors and asks you to manage food, wood, and the fire using daily actions. Those two survivors belong only to that prototype; they are not in the real-time game described above. It is not the game currently served at the phone link.
+To prepare a phone update after changing the extension source, run `node build-pwa.js` from this folder, then deploy the contents of `last-ember-pwa/` to the HTTPS site.
 
-<p align="center"><sub><strong>LAST EMBER</strong> &nbsp;·&nbsp; MIDNIGHT <code>#182838</code> &nbsp; FROST <code>#D5E0E4</code> &nbsp; EMBER <code>#ED633B</code> &nbsp; FIRELIGHT <code>#FFBF69</code></sub></p>
+## <a id="other-prototype"></a>A different trail: the camp prototype
+
+[`last-ember.html`](last-ember.html) is a separate, turn-based camp-management prototype. In that version, **two survivors** manage food, wood, and the fire through daily actions. Those two survivors belong only to that prototype; they do not appear in the real-time game above or at the phone link.
+
+<p align="center"><sub><strong>THE LAST EMBER</strong> &nbsp;·&nbsp; MIDNIGHT <code>#182838</code> &nbsp; FROST <code>#D5E0E4</code> &nbsp; EMBER <code>#ED633B</code> &nbsp; FIRELIGHT <code>#FFBF69</code></sub></p>

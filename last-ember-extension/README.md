@@ -1,37 +1,58 @@
-# Last Ember — desktop extension and phone game
+<p align="center">
+  <strong>LAST EMBER</strong><br>
+  <sub>One survivor. One fire. One more night.</sub>
+</p>
 
-Last Ember is a **single-player, real-time winter survival game**. You control one survivor, collect logs, and carry them back to the campfire to keep it burning until dawn. Wolves threaten you when you leave the firelight. Make it through the night to choose an upgrade and continue the run.
+# Desktop extension + phone game
 
-There is one playable character. Wolves are enemies. There is no second survivor in this game and no multiplayer. The separate [`last-ember.html`](../last-ember.html) file is an older, turn-based camp-management prototype; its two survivors are not part of this real-time game.
+The snow is falling. The fire is shrinking. Somewhere beyond its glow, wolves are watching.
 
-This folder contains the shared game source and two ways to launch it:
+**Last Ember** is a single-player, real-time winter survival game. You guide one survivor, gather logs, and carry them back to the campfire to make it through the night. Reach dawn to choose an upgrade and face the next night.
 
-- **Desktop extension:** adds a Last Ember button to the Chrome or Brave toolbar. Clicking it opens the game in a tab and does not replace the browser's New Tab page. The game files are bundled with the extension, so it can launch offline after installation. It does not replace the browser's built-in network-error page or Dino game.
-- **Phone PWA:** the same game, hosted over HTTPS so it can be installed from a mobile browser and cached for offline launch.
+> **The cast:** one playable survivor and a pack of wolves. The wolves are enemies, not another player. There is no second survivor or multiplayer in this game.
 
-The extension and PWA use the same `index.html`, `style.css`, and `game.js`. The corresponding files in `last-ember-extension/` and `last-ember-pwa/` currently match. They run independently: best scores and sound volume are stored locally on each device and are not synced.
+[`last-ember.html`](../last-ember.html) is a separate, turn-based camp-management prototype. That one has two survivors managing supplies; they are not characters in this real-time game.
 
-## Install the desktop extension in Chrome or Brave
+## Two ways to enter the same game
 
-1. Open the extensions page (`chrome://extensions` in Chrome or `brave://extensions` in Brave).
-2. Turn on **Developer mode**.
+| Desktop extension | Phone PWA |
+|:--|:--|
+| A Last Ember button sits in the Chrome or Brave toolbar. Click it to open the game in a tab; your New Tab page stays as it is. | Visit [last-ember-game.netlify.app](https://last-ember-game.netlify.app) and install it from your mobile browser. |
+| Game files are bundled with the extension, so it can launch offline after installation. | Open the site successfully online once so the service worker can cache it. After that, launch from your home screen offline. |
+
+Neither version replaces Chrome or Brave’s built-in network-error page or Dino game. They run separately, so best scores and sound settings stay on each device and do not sync.
+
+The extension and PWA use the same `index.html`, `style.css`, and `game.js`. Those game files currently match in `last-ember-extension/` and `last-ember-pwa/`.
+
+## Install on Chrome or Brave
+
+1. Open `chrome://extensions` in Chrome or `brave://extensions` in Brave.
+2. Switch on **Developer mode**.
 3. Choose **Load unpacked** and select this `last-ember-extension` folder.
-4. Pin Last Ember from the browser's Extensions menu if you want its toolbar button visible.
-5. Click the toolbar button to play. Your New Tab page stays as it was.
+4. Pin Last Ember from the Extensions menu if you want its toolbar button visible.
+5. Click the button whenever the woods call.
 
-To remove the extension, disable or remove it from the same extensions page.
+To remove it later, disable or remove Last Ember from the same extensions page.
 
-## Install the phone game
+## Install on your phone
 
-The public phone build is [last-ember-game.netlify.app](https://last-ember-game.netlify.app). It needs one successful visit while online so the service worker can cache the game files.
+First, [open Last Ember online](https://last-ember-game.netlify.app/) and let it finish loading. That first visit lets the service worker store the game files for offline play.
 
-- **Android:** open the link in Chrome, then choose **Install app** from the browser menu.
-- **iPhone:** open the link in Safari, tap **Share → Add to Home Screen**.
+- **Android:** open the site in Chrome and choose **Install app** from the browser menu.
+- **iPhone:** open the site in Safari and choose **Share → Add to Home Screen**.
 
-After the initial cache, launch the game from the home screen while offline. When a new version is published, the phone downloads it the next time it opens the site online; until then, offline play uses the cached version.
+Once cached, launch Last Ember from your home screen—even when you’re offline. After a new version is published, open the site online again to download it. Until then, your phone keeps its cached version.
 
-## Update the phone build
+## Updating both builds
 
-Edit `index.html`, `style.css`, or `game.js` in this folder. Then run `node build-pwa.js` from the parent `offline-game` folder. This copies the PWA files into `last-ember-pwa/`; deploy that folder's contents to the HTTPS site. The desktop unpacked extension picks up source changes after you reload it from the extensions page. A store-published extension would need a new release.
+Edit `index.html`, `style.css`, or `game.js` in this folder. Reload the unpacked desktop extension from the extensions page. Then run `node build-pwa.js` from the parent `offline-game` folder and deploy the contents of `last-ember-pwa/` to the HTTPS site. A store-published extension would need a new release.
 
-The game has touch controls, keyboard controls, pause and restart, upgrades, and synthesized Web Audio effects. Browsers start audio only after the player interacts with the page. There are no remote libraries, images, fonts, or audio files required by the game.
+## Quick controls
+
+- **Phone:** tap or drag to move.
+- **Desktop:** arrow keys or WASD to move.
+- **Pause:** P, Esc, or the pause button.
+- **Sound:** M or the speaker button changes volume; audio starts after your first interaction with the page.
+- **Upgrades:** tap a card or press 1 or 2.
+
+There are no remote libraries, images, fonts, or audio files required by the game. Sound effects are generated in the browser.
