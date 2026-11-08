@@ -1,43 +1,66 @@
-# Last Ember
+<p align="center">
+  <img src="last-ember-banner.svg" alt="Last Ember — one fire. A long night. Hold on till dawn." width="100%">
+</p>
 
-The world has gone quiet. Snow swallows the trail, the dark presses close, and the fire is all that keeps the wolves back.
+<p align="center">
+  <strong>A quiet world. A hungry fire. Something moving beyond the light.</strong><br>
+  A bite-sized winter survival game about making it through one more night.
+</p>
 
-In **Last Ember**, each night is a fight to see the dawn. Leave the warmth to gather scattered logs, then carry them back before the flames die. The light is safety, but only while you can keep it alive. Survive the night and choose an upgrade. Stay out there long enough, and the cold will have to wait one more night.
+<p align="center">
+  <a href="#play"><strong>▶ Play</strong></a> &nbsp;·&nbsp;
+  <a href="#survive-the-night">How to survive</a> &nbsp;·&nbsp;
+  <a href="#install-the-browser-button">Browser extension</a>
+</p>
 
-Last Ember is a small, self-contained survival game that runs in your browser, even when you are offline. No account or connection needed. Just you, the snow, and one more night.
+<br>
 
-## Play the game
+## The night has a rhythm
 
-### Open the standalone game
+<table>
+  <tr>
+    <td align="center" width="25%"><strong style="color:#e5a15b">01 · TEND</strong><br><sub>Watch the fire. Its fuel is running down.</sub></td>
+    <td align="center" width="25%"><strong style="color:#d8e4e8">02 · VENTURE</strong><br><sub>Step into the snow and find fallen logs.</sub></td>
+    <td align="center" width="25%"><strong style="color:#ef8155">03 · RETURN</strong><br><sub>Carry wood back before the light goes out.</sub></td>
+    <td align="center" width="25%"><strong style="color:#f0d4a0">04 · ENDURE</strong><br><sub>Reach dawn. Choose an upgrade. Face night again.</sub></td>
+  </tr>
+</table>
 
-Open [`last-ember.html`](last-ember.html) in a modern browser. The game is contained in that file and does not need a server, installation, or internet connection.
+The fire’s ring of light is your shelter. Wolves circle beyond it, and the nights grow longer as you survive. How far can one ember take you?
 
-### Install the browser extension
+<p align="center">
+  <code>🌙 &nbsp; KEEP THE FIRE ALIVE &nbsp; → &nbsp; 🪵 GATHER WOOD &nbsp; → &nbsp; 🐺 OUTLAST THE NIGHT &nbsp; → &nbsp; 🌅 CHOOSE AN UPGRADE</code>
+</p>
 
-The [`last-ember-extension`](last-ember-extension/) folder contains an unpacked Manifest V3 extension for Chrome and Brave. It adds a toolbar button that opens the locally bundled game.
+## Play
+
+### <a id="play"></a>Open the standalone game
+
+Open [`last-ember.html`](last-ember.html) in a modern browser. It is self-contained: no install, server, account, or internet connection needed.
+
+### <a id="install-the-browser-button"></a>Install the browser button
+
+The [`last-ember-extension`](last-ember-extension/) folder contains an unpacked extension for Chrome and Brave. Add it once, then launch the game from your toolbar—even offline.
 
 1. Open `chrome://extensions` in Chrome or `brave://extensions` in Brave.
 2. Turn on **Developer mode**.
 3. Choose **Load unpacked** and select the `last-ember-extension` folder.
-4. Pin **Last Ember** from the Extensions menu if you want its button in the toolbar.
+4. Pin **Last Ember** in the Extensions menu for quick access.
 
-See the [extension README](last-ember-extension/README.md) for more details.
+More details: [extension setup guide](last-ember-extension/README.md).
 
-## When night falls
+## <a id="survive-the-night"></a>Survive the night
 
-- Keep the fire alive until dawn. Fuel drains as the night wears on, so venture out for logs and bring them back to the fire.
-- Move with **WASD** or the **arrow keys**, or tap and drag on the play area.
-- Stay within the dashed ring of light when you can. Wolves prowl beyond it and keep their distance from the fire.
-- Make it to dawn to choose one of two upgrades. Each night brings a longer wait and more danger.
-- Press **P** or **Esc** to pause, and **M** to cycle sound volume. Use **1** or **2** to choose an upgrade at dawn.
-- Select **?** in game for the control guide. The game pauses when the tab loses focus.
+| Action | Controls |
+|:--|:--|
+| Walk | **WASD**, **arrow keys**, or tap and drag |
+| Pause / resume | **P** or **Esc** |
+| Change sound | **M** or the speaker button |
+| Choose a dawn upgrade | **1** or **2**, or tap a card |
+| Open the help | **?** button |
 
-Your best run and sound level are saved locally in the browser. Sound begins after your first input, as browsers require a user gesture before audio can play.
+Stay near the fire when wolves are close. Collect logs and return to feed the flames. At dawn, pick one of two upgrades and prepare for the next night. Your best run and sound setting are saved locally in the browser.
 
-## Project files
-
-- `last-ember.html` — standalone game.
-- `last-ember-extension/` — browser extension source, assets, and setup instructions.
-- `last-ember-v2.html`, `last-ember-live-3.html`, `last-ember-live-4.html`, `last-ember-live-5.html`, and `last-ember-live-6.html` — earlier and in-progress standalone builds.
-
-The extension game is implemented with local HTML, CSS, JavaScript, and image assets. It uses no remote libraries, fonts, or media.
+<p align="center">
+  <sub>VISUAL PALETTE &nbsp; <span style="color:#182838">●</span> MIDNIGHT &nbsp; <span style="color:#344657">●</span> FROST &nbsp; <span style="color:#ed633b">●</span> EMBER &nbsp; <span style="color:#ffbf69">●</span> FIRELIGHT</sub>
+</p>

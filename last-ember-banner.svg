@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">Last Ember</title>
+  <desc id="desc">A small fire burns beneath a cold winter sky while snow-covered pines fade into the night.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101c2b"/><stop offset=".55" stop-color="#182838"/><stop offset="1" stop-color="#344657"/>
+    </linearGradient>
+    <radialGradient id="glow"><stop stop-color="#ffbf69" stop-opacity=".45"/><stop offset="1" stop-color="#ff8b3d" stop-opacity="0"/></radialGradient>
+    <linearGradient id="flame" x1="0" y1="1" x2="0" y2="0"><stop stop-color="#ed633b"/><stop offset=".55" stop-color="#ff9d4d"/><stop offset="1" stop-color="#ffe1a0"/></linearGradient>
+  </defs>
+  <rect width="1200" height="420" rx="24" fill="url(#sky)"/>
+  <circle cx="825" cy="90" r="2" fill="#f0eee8" opacity=".8"/><circle cx="950" cy="144" r="1.5" fill="#f0eee8" opacity=".7"/><circle cx="730" cy="61" r="1.5" fill="#f0eee8" opacity=".65"/><circle cx="1090" cy="84" r="2" fill="#f0eee8" opacity=".55"/><circle cx="640" cy="153" r="1.4" fill="#f0eee8" opacity=".7"/>
+  <path d="M0 260 110 135l93 111 94-154 122 168 105-123 112 133 103-158 118 143 95-120 98 126 83-102 67 90v151H0Z" fill="#213444"/>
+  <path d="m110 135 44 50-45-18-29 31Zm187-43 51 70-52-23-42 25Zm227 45 52 61-53-20-37 24Zm221-35 56 72-61-25-34 22Zm213 4 50 63-51-18-35 19Zm165 16 43 52-48-18-30 20Z" fill="#8296a4" opacity=".66"/>
+  <path d="M0 305q170-38 340 0t340 0 340 0 340 0v115H0Z" fill="#d5e0e4"/>
+  <path d="M0 345q190-30 380 0t380 0 440 0v75H0Z" fill="#edf2f1"/>
+  <ellipse cx="852" cy="344" rx="205" ry="110" fill="url(#glow)"/>
+  <g fill="#172733"><path d="m713 321 39-105 39 105h-23l35 53h-103l35-53Z"/><path d="m986 303 31-83 31 83h-18l28 43h-82l28-43Z"/><path d="m1050 339 22-59 22 59h-14l20 31h-56l20-31Z"/></g>
+  <g stroke="#704431" stroke-width="13" stroke-linecap="round"><path d="m804 358 91 18"/><path d="m813 377 84-17"/></g>
+  <path d="M833 360q-10-28 14-48 0 18 13 21 8-33 33-48-5 29 12 45 18 18 4 42-11 18-39 18-27 0-37-17Z" fill="url(#flame)"/>
+  <path d="M857 369q-4-17 14-30 0 13 10 16 6-14 17-20 0 17 10 26 8 19-17 27-23 2-34-19Z" fill="#fff0bb" opacity=".92"/>
+  <g fill="#f5f3ec" opacity=".85"><circle cx="557" cy="215" r="3"/><circle cx="650" cy="293" r="2"/><circle cx="1002" cy="190" r="2.5"/><circle cx="1080" cy="260" r="2"/><circle cx="777" cy="196" r="2"/><circle cx="933" cy="237" r="3"/></g>
+  <text x="76" y="164" fill="#f5f0e7" font-family="Georgia,serif" font-size="66" font-weight="700" letter-spacing="1">LAST EMBER</text>
+  <path d="M78 188h74" stroke="#f09a53" stroke-width="5" stroke-linecap="round"/>
+  <text x="78" y="232" fill="#d6e0e3" font-family="Arial,sans-serif" font-size="21" letter-spacing="2">ONE FIRE. A LONG NIGHT. HOLD ON TILL DAWN.</text>
+</svg>
